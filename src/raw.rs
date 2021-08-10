@@ -11,6 +11,17 @@ pub struct RawTrapdoor<T> {
 }
 
 impl<T> RawTrapdoor<T> {
+    /// Create a new raw trapdoor.
+    pub fn new() -> Self {
+        Self {
+            inner: [
+                RwLock::new(Vec::new()),
+                RwLock::new(Vec::new()),
+            ],
+            selector: AtomicUsize::new(0),
+        }
+    }
+
     pub fn insert(&self, value: T)  {
         let mut guard = {
             let selector = self.selector.load(AtomicOrdering::Acquire);
