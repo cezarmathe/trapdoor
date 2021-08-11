@@ -3,12 +3,35 @@
 //! You write to the first slot, then you switch writing to the next slot and
 //! take the value from the first one.
 
+use self::raw::RawTrapdoor;
+
 mod raw;
 
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
+/// A trapdoor?
+pub struct Trapdoor<T> {
+    raw: RawTrapdoor<T>,
+}
+
+impl<T> Trapdoor<T> {
+    /// Create a new trapdoor.
+    pub fn new() -> Self {
+        todo!()
+    }
+
+    /// Take a collection from the trapdoor.
+    pub fn take(&self) -> Vec<T> {
+        todo!()
+    }
+
+    /// Insert a value in the trapdoor.
+    pub fn insert(&self, value: T) {
+        todo!()
+    }
+}
+
+impl<T> Default for Trapdoor<T> {
+    /// Create a new, default trapdoor.
+    fn default() -> Self {
+        todo!()
     }
 }
