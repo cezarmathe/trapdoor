@@ -14,7 +14,7 @@ pub struct Trapdoor<T> {
 
 impl<T> Trapdoor<T> {
     /// Create a new trapdoor.
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         todo!()
     }
 
