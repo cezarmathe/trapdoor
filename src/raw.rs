@@ -6,18 +6,15 @@ use std::sync::atomic::Ordering as AtomicOrdering;
 use parking_lot::RwLock;
 
 pub struct RawTrapdoor<T> {
-    inner: [RwLock<Vec<T>>; 2],
+    inner: [RwLock<Option<Vec<T>>>; 2],
     selector: AtomicUsize,
 }
 
 impl<T> RawTrapdoor<T> {
     /// Create a new raw trapdoor.
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self {
-            inner: [
-                RwLock::new(Vec::new()),
-                RwLock::new(Vec::new()),
-            ],
+            inner: [RwLock::new(None), RwLock::new(None)],
             selector: AtomicUsize::new(0),
         }
     }
