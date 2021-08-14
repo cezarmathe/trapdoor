@@ -14,7 +14,10 @@ impl<T> RawTrapdoor<T> {
     /// Create a new raw trapdoor.
     pub const fn new() -> Self {
         Self {
-            inner: [RwLock::new(None), RwLock::new(None)],
+            inner: [
+                parking_lot::const_rwlock(None),
+                parking_lot::const_rwlock(None),
+            ],
             selector: AtomicUsize::new(0),
         }
     }

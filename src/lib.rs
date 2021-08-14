@@ -15,7 +15,9 @@ pub struct Trapdoor<T> {
 impl<T> Trapdoor<T> {
     /// Create a new trapdoor.
     pub const fn new() -> Self {
-        todo!()
+        Self {
+            raw: RawTrapdoor::new(),
+        }
     }
 
     /// Take a collection from the trapdoor.
