@@ -8,6 +8,7 @@ use parking_lot::RwLock;
 pub struct RawTrapdoor<T> {
     inner: [RwLock<Option<Vec<T>>>; 2],
     selector: AtomicUsize,
+    take_lock: Mutex<()>,
 }
 
 impl<T> RawTrapdoor<T> {
@@ -19,6 +20,7 @@ impl<T> RawTrapdoor<T> {
                 parking_lot::const_rwlock(None),
             ],
             selector: AtomicUsize::new(0),
+            take_lock: parking_lot::const_mutex(()),
         }
     }
 
