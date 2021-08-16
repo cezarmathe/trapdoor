@@ -22,18 +22,18 @@ impl<T> Trapdoor<T> {
 
     /// Take a collection from the trapdoor.
     pub fn take(&self) -> Vec<T> {
-        todo!()
+        self.raw.take()
     }
 
     /// Insert a value in the trapdoor.
     pub fn insert(&self, value: T) {
-        todo!()
+        self.raw.insert(value)
     }
 }
 
 impl<T> Default for Trapdoor<T> {
     /// Create a new, default trapdoor.
     fn default() -> Self {
-        todo!()
+        Self::new()
     }
 }
