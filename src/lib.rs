@@ -37,3 +37,23 @@ impl<T> Default for Trapdoor<T> {
         Self::new()
     }
 }
+
+#[cfg(test)]
+mod test {
+    use crate::Trapdoor;
+
+    #[test]
+    fn test_take_insert() {
+        let trapdoor = Trapdoor::new();
+
+        assert_eq!(trapdoor.take().len(), 0);
+
+        for i in 0..43 {
+            trapdoor.insert(i);
+        }
+
+        let col = trapdoor.take();
+        assert_eq!(col.len(), 43);
+        assert_eq!(col.last(), Some(&42));
+    }
+}
