@@ -71,7 +71,7 @@ impl<T> RawTrapdoor<T> {
     /// Get the current selector.
     #[inline(always)]
     fn get_selector(&self) -> usize {
-        self.selector.load(AtomicOrdering::Acquire)
+        self.selector.load(AtomicOrdering::SeqCst)
     }
 
     /// Switch the selector, returning the old value.
