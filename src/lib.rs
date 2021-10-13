@@ -1,13 +1,12 @@
-//! Some kind of accumulator.
-//!
-//! You write to the first slot, then you switch writing to the next slot and
-//! take the value from the first one.
+//! Data structure that accumulates data in separate cells which allows for
+//! minimal (I think?) friction between taking accumulated data while storing
+//! new data continuously.
 
 use self::raw::RawTrapdoor;
 
 mod raw;
 
-/// A trapdoor?
+/// A trapdoor.
 pub struct Trapdoor<T> {
     raw: RawTrapdoor<T>,
 }
