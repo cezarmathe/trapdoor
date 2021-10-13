@@ -1,10 +1,16 @@
 [package]
-name = "trapdoor"
-version = "0.1.0"
-authors = ["Armand-Cezar Mathe <me@cezarmathe.com>"]
-edition = "2018"
+name        = "trapdoor"
+version     = "0.1.0"
+authors     = ["Armand-Cezar Mathe <me@cezarmathe.com>"]
+edition     = "2018"
+description = "Data structure for collecting and reading in separate cells."
+readme      = "README.md"
+license     = "MIT"
+homepage    = "https://github.com/cezarmathe/trapdoor"
+repository  = "https://github.com/cezarmathe/trapdoor"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+# synchronization primitives
 parking_lot = "0.11"
